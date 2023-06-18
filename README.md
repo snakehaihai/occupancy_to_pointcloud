@@ -4,7 +4,9 @@ This package provides a ROS node to convert a 2D occupancy map from a LIDAR scan
 
 The occupancy grid cells are interpreted as 2D slices of the 3D environment. Each occupied cell is transformed into a vertical column of points, with a specified density of points along the z-axis.
 
-![Demo GIF](demo/Gmapping.gif)  ![Demo GIF](demo/pointcloud.gif)
+![Demo GIF](demo/Gmapping.gif)  
+
+![Demo GIF](demo/pointcloud.gif)
 
 ## Dependencies
 
