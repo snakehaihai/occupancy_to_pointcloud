@@ -3,10 +3,11 @@
 This package provides a ROS node to convert a 2D occupancy map from a LIDAR scan into a 3D point cloud. This point cloud can then be used to create a 3D Octomap. The program reads an OccupancyGrid map from the `/map` topic, converts it into a point cloud, and publishes the point cloud on the `/cloud_out` topic.
 
 The occupancy grid cells are interpreted as 2D slices of the 3D environment. Each occupied cell is transformed into a vertical column of points, with a specified density of points along the z-axis.
+<p float="left">
+  <img src="/demo/Gmapping.gif" width="400" />
+  <img src="/demo/pointcloud.gif" width="400" /> 
+</p>
 
-![Demo GIF](demo/Gmapping.gif)  
-
-![Demo GIF](demo/pointcloud.gif)
 
 ## Dependencies
 
