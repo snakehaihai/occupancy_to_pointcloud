@@ -43,7 +43,7 @@ You can run the `occupancy_to_pointcloud_node` using the `rosrun` command:
 ```bash
 rosrun occupancy_to_pointcloud occupancy_to_pointcloud_node
 
-
+```
 
 Copyright (c) 2023 Your Name
 
