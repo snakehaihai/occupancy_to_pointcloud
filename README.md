@@ -41,6 +41,7 @@ The occupancy grid cells are interpreted as 2D slices of the 3D environment. Eac
 You can run the `occupancy_to_pointcloud_node` using the `rosrun` command:
 
 ```bash
+roslaunch laser_scan_matcher demo_gmapping.launch
 rosrun occupancy_to_pointcloud occupancy_to_pointcloud_node
 
 ```
