@@ -1,0 +1,7 @@
+image: /home/nuc/ws_planning/src/occupancy_to_pointcloud-main/data/7.pgm
+resolution: 0.020000
+origin: [-33.680000, -26.640000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

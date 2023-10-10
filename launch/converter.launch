@@ -1,0 +1,13 @@
+<launch>
+    <!-- Set parameters -->
+    <param name="starting_height" type="double" value="0.0" />
+    <param name="ending_height"   type="double" value="1.0" />
+    <param name="height_step"     type="double" value="0.1" />
+    
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find occupancy_to_pointcloud)/data/7.yaml">
+     
+    </node>
+
+    <!-- Launch the node -->
+    <node pkg="occupancy_to_pointcloud" type="occupancy_to_pointcloud_node" name="occupancy_to_pointcloud_node" output="screen" />
+</launch>

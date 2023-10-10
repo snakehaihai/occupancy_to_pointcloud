@@ -3,14 +3,19 @@
 #include <sensor_msgs/PointCloud2.h>
 #include <pcl/point_types.h>
 #include <pcl_conversions/pcl_conversions.h>
-
 class GridToPointCloud
 {
 public:
     GridToPointCloud()
     {
+        // Subscribe and Advertise topics
         grid_sub_ = nh_.subscribe("/map", 1, &GridToPointCloud::gridCb, this);
         cloud_pub_ = nh_.advertise<sensor_msgs::PointCloud2>("/cloud_out", 1);
+
+        // Get parameters from the parameter server (or set defaults if not found)
+        nh_.param("starting_height", starting_height_, -1.0);
+        nh_.param("ending_height", ending_height_, 1.0);
+        nh_.param("height_step", height_step_, 0.1);
     }
 
 private:
@@ -28,7 +33,7 @@ private:
             {
                 if (grid->data[j * grid->info.width + i] > 0) // if occupied
                 {
-                    for (double z = 0.0; z <= desired_height; z += desired_height / num_layers)
+                    for (double z = starting_height_; z <= ending_height_; z += height_step_)
                     {
                         pcl::PointXYZ point;
                         point.x = i * resolution + origin_x;
@@ -50,8 +55,9 @@ private:
     ros::NodeHandle nh_;
     ros::Subscriber grid_sub_;
     ros::Publisher cloud_pub_;
-    const double desired_height = 1.0; // change this to the height you want
-    const unsigned int num_layers = 100; // change this to increase or decrease the point density in the z-axis
+    double starting_height_;
+    double ending_height_;
+    double height_step_;
 };
 
 int main(int argc, char** argv)
@@ -61,4 +67,5 @@ int main(int argc, char** argv)
     ros::spin();
     return 0;
 }
+
 
